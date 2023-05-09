@@ -6,7 +6,26 @@
 @section('url'){{asset('')}}@endsection
 
 @section('css')
-<link href="frontend/Content/Css/page-about.css" rel="stylesheet" />
+<!--Link css page index-->
+<link href="frontend/content/Css/main.css" rel="stylesheet" />
+<link href="frontend/content/Css/responsive.css" rel="stylesheet" />
+<link href="frontend/content/Css/room.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
+<!-- Vendor CSS Files cdn -->
+<link rel="stylesheet" href="frontend/Files/plugins/bootstrap-4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="frontend/Files/fonts/fontawesome-pro-5.15.2/css/all.min.css">
+<!-- Plugin css local-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" />
+<link rel="stylesheet" href="frontend/Files/plugins/owlcarousel/owl.carousel.min.css">
+<link rel="stylesheet" href="frontend/Files/plugins/owlcarousel/owl.theme.default.min.css">
+<link rel="stylesheet" href="frontend/Files/plugins/slick/slick.css">
+<link rel="stylesheet" href="frontend/Files/plugins/slick/slick-theme.css">
+<link rel="stylesheet" href="frontend/Files/plugins/daterangepicker/daterangepicker.css">
+<link href="frontend/content/Css/room.css" rel="stylesheet" />
+<link href="frontend/content/Css/room-single.css" rel="stylesheet" />
+<link href="frontend/Plugins/Validate/jquery-validation-1.13.1/jquery-validation.css" rel="stylesheet" />
+<link rel="stylesheet" href="{{asset('')}}frontend/files/plugins/menu.css">
+<link href="frontend/content/Css/page-about.css" rel="stylesheet" />
 @endsection
 @section('content')
 

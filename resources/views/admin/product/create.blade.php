@@ -58,7 +58,7 @@
                 <ul class="nav nav-pills">
                     <li><a data-toggle="tab" class="nav-link active" href="#vi">Tiếng Việt</a></li>
                     <li><a data-toggle="tab" class="nav-link" href="#en">Tiếng Anh</a></li>
-                    <li><a data-toggle="tab" class="nav-link" href="#cn">Tiếng Trung</a></li>
+                    <li><a data-toggle="tab" class="nav-link" href="#jp">Tiếng Nhật</a></li>
                 </ul>
             </div>
             <div class="tab-content overflow">
@@ -71,27 +71,27 @@
                                   <input name="name:vi" placeholder="..." type="text" class="form-control">
                               </div>
                           </div>
-                          <div class="col-md-4">
+                          <div class="col-md-12">
                               <div class="form-group">
-                                  <label>Address</label>
-                                  <input name="address:vi" placeholder="..." type="text" class="form-control">
+                                  <label>Description</label>
+                                  <textarea rows="3" name="detail:vi" class="form-control"></textarea>
                               </div>
                           </div>
                           <div class="col-md-12">
                               <div class="form-group">
-                                  <label>Sales policy</label>
+                                  <label>Content</label>
                                   <textarea name="content:vi" class="form-control" id="ckeditor"></textarea>
                               </div>
                           </div>
                           <div class="col-md-12">
                               <div class="form-group">
-                                  <label>Title</label>
+                                  <label>Title (SEO)</label>
                                   <input name="title:vi" placeholder="..." type="text" class="form-control">
                               </div>
                           </div>
                           <div class="col-md-12">
                               <div class="form-group">
-                                  <label>Description</label>
+                                  <label>Description  (SEO)</label>
                                   <input name="description:vi" placeholder="..." type="text" class="form-control">
                               </div>
                           </div>
@@ -107,15 +107,15 @@
                                   <input name="name:en" placeholder="..." type="text" class="form-control">
                               </div>
                           </div>
-                          <div class="col-md-4">
+                          <div class="col-md-12">
                               <div class="form-group">
-                                  <label>Address</label>
-                                  <input name="address:en" placeholder="..." type="text" class="form-control">
+                                  <label>Description</label>
+                                  <textarea rows="3" name="detail:en" class="form-control"></textarea>
                               </div>
                           </div>
                           <div class="col-md-12">
                               <div class="form-group">
-                                  <label>Sales policy</label>
+                                  <label>Content</label>
                                   <textarea name="content:en" class="form-control" id="ckeditor1"></textarea>
                               </div>
                           </div>
@@ -134,7 +134,7 @@
                       </div>
                   </div>
                 </div>
-                <div class="tab-pane" id="cn">
+                <div class="tab-pane" id="jp">
                   <div class="card-body">
                       <div class="row">
                           <div class="col-md-12">
@@ -143,15 +143,15 @@
                                   <input name="name:jp" placeholder="..." type="text" class="form-control">
                               </div>
                           </div>
-                          <div class="col-md-4">
+                          <div class="col-md-12">
                               <div class="form-group">
-                                  <label>Address</label>
-                                  <input name="address:jp" placeholder="..." type="text" class="form-control">
+                                  <label>Description</label>
+                                  <textarea rows="3" name="detail:jp" class="form-control"></textarea>
                               </div>
                           </div>
                           <div class="col-md-12">
                               <div class="form-group">
-                                  <label>Sales policy</label>
+                                  <label>Content</label>
                                   <textarea name="content:jp" class="form-control" id="ckeditor2"></textarea>
                               </div>
                           </div>
@@ -171,9 +171,141 @@
                   </div>
                 </div>
             </div>
+
+        </div>
+
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Tiện ích</h6>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="form-group">
+                      <div class="checkboxes__item">
+                        <label class="checkbox style-e">
+                          <input name="utilities[]" value="Restaurant" type="checkbox" checked="checked"/>
+                          <div class="checkbox__checkmark"></div><div class="checkbox__body">Nhà hàng</div>
+                        </label>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                      <div class="checkboxes__item">
+                        <label class="checkbox style-e">
+                          <input name="utilities[]" value="Room_service" type="checkbox" checked="checked"/>
+                          <div class="checkbox__checkmark"></div><div class="checkbox__body">Dịch vụ phòng</div>
+                        </label>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                      <div class="checkboxes__item">
+                        <label class="checkbox style-e">
+                          <input name="utilities[]" value="Laundry" type="checkbox" checked="checked"/>
+                          <div class="checkbox__checkmark"></div><div class="checkbox__body">Giặt ủi</div>
+                        </label>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                      <div class="checkboxes__item">
+                        <label class="checkbox style-e">
+                          <input name="utilities[]" value="Wifi" type="checkbox" checked="checked"/>
+                          <div class="checkbox__checkmark"></div><div class="checkbox__body">Wifi</div>
+                        </label>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                      <div class="checkboxes__item">
+                        <label class="checkbox style-e">
+                          <input name="utilities[]" value="Parking_area" type="checkbox" checked="checked"/>
+                          <div class="checkbox__checkmark"></div><div class="checkbox__body">Chỗ gửi xe</div>
+                        </label>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                      <div class="checkboxes__item">
+                        <label class="checkbox style-e">
+                          <input name="utilities[]" value="Have_breakfast" type="checkbox" checked="checked"/>
+                          <div class="checkbox__checkmark"></div><div class="checkbox__body">Ăn sáng</div>
+                        </label>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                      <div class="checkboxes__item">
+                        <label class="checkbox style-e">
+                          <input name="utilities[]" value="Gym" type="checkbox" checked="checked"/>
+                          <div class="checkbox__checkmark"></div><div class="checkbox__body">Gym</div>
+                        </label>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                      <div class="checkboxes__item">
+                        <label class="checkbox style-e">
+                          <input name="utilities[]" value="Spa" type="checkbox" checked="checked"/>
+                          <div class="checkbox__checkmark"></div><div class="checkbox__body">Spa</div>
+                        </label>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                      <div class="checkboxes__item">
+                        <label class="checkbox style-e">
+                          <input name="utilities[]" value="Safe" type="checkbox" checked="checked"/>
+                          <div class="checkbox__checkmark"></div><div class="checkbox__body">Két sắt</div>
+                        </label>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                      <div class="checkboxes__item">
+                        <label class="checkbox style-e">
+                          <input name="utilities[]" value="Television" type="checkbox" checked="checked"/>
+                          <div class="checkbox__checkmark"></div><div class="checkbox__body">Tivi</div>
+                        </label>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                      <div class="checkboxes__item">
+                        <label class="checkbox style-e">
+                          <input name="utilities[]" value="Bathtub" type="checkbox" checked="checked"/>
+                          <div class="checkbox__checkmark"></div><div class="checkbox__body">Bồn tắm</div>
+                        </label>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                      <div class="checkboxes__item">
+                        <label class="checkbox style-e">
+                          <input name="utilities[]" value="Pool" type="checkbox" checked="checked"/>
+                          <div class="checkbox__checkmark"></div><div class="checkbox__body">Bể bơi</div>
+                        </label>
+                      </div>
+                  </div>
+                </div>
+              </div>
             
+            </div>
         </div>
     </div>
+  
     <div class="col-xl-3 col-lg-3">
         <div class="card shadow mb-4">
           <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -195,8 +327,8 @@
                     <div style="display: flex;">
                       <input name="price" placeholder="..." type="text" class="form-control">
                       <select class="form-control" name="unit">
-                        <option value="Tỷ">Tỷ</option>
-                        <option value="Triệu">Triệu</option>
+                        <option value="VNĐ/Đêm">vnđ/đêm</option>
+                        <option value="VNĐ/Tháng">vnđ/tháng</option>
                       </select>
                     </div>
                 </div>
@@ -233,37 +365,6 @@
         </div>
       </div>
 </div>
-
-<div>
-  <input value="Tổng quan" type="hidden" name="name_section:vi[]" >
-  <input value="Overview" type="hidden" name="name_section:en[]">
-  <input value="概述" type="hidden" name="name_section:jp[]">
-</div>
-
-<div>
-  <input value="Vị trí" type="hidden" name="name_section:vi[]" >
-  <input value="Location" type="hidden" name="name_section:en[]">
-  <input value="地點" type="hidden" name="name_section:jp[]">
-</div>
-
-<div>
-  <input value="Liên kết vùng" type="hidden" name="name_section:vi[]" >
-  <input value="Regional link" type="hidden" name="name_section:en[]">
-  <input value="區域鏈接" type="hidden" name="name_section:jp[]">
-</div>
-
-<div>
-  <input value="Tiện ích" type="hidden" name="name_section:vi[]" >
-  <input value="Utilities" type="hidden" name="name_section:en[]">
-  <input value="公用事業" type="hidden" name="name_section:jp[]">
-</div>
-
-<div>
-  <input value="Mặt bằng" type="hidden" name="name_section:vi[]" >
-  <input value="Ground" type="hidden" name="name_section:en[]">
-  <input value="地面" type="hidden" name="name_section:jp[]">
-</div>
-
 
 </form>
 @endsection

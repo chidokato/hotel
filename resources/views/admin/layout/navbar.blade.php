@@ -29,6 +29,9 @@
     <li class="nav-item">
         <a class="nav-link" href="{{route('post.index')}}"><i class="fas fa-fw fa-chart-area"></i><span>Tin tức</span></a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('setting.index')}}"><i class="fas fa-fw fa-chart-area"></i><span>Cầu hình</span></a>
+    </li>
     <!-- <li class="nav-item">
         <a class="nav-link" href="admin/messages/list"><i class="fas fa-fw fa-chart-area"></i><span>Messages</span></a>
     </li> -->
@@ -49,7 +52,7 @@
             </div>
         </div>
     </li> -->
-    <li class="nav-item">
+    <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
             aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-fw fa-wrench"></i>
@@ -61,10 +64,10 @@
                 <a class="collapse-item" href="{{route('province.index')}}">Province</a>
                 <a class="collapse-item" href="{{route('district.index')}}">District</a>
                 <a class="collapse-item" href="{{route('ward.index')}}">Ward</a>
-                <!-- <a class="collapse-item" href="admin/street/list">Street</a> -->
+                <a class="collapse-item" href="admin/street/list">Street</a>
             </div>
         </div>
-    </li>
+    </li> -->
     <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#setting"
             aria-expanded="true" aria-controls="setting">

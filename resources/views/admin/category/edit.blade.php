@@ -36,7 +36,7 @@
                 <ul class="nav nav-pills">
                     <li><a data-toggle="tab" class="nav-link " href="#en">Tiếng Anh</a></li>
                     <li><a data-toggle="tab" class="nav-link active" href="#vi">Tiếng Việt</a></li>
-                    <li><a data-toggle="tab" class="nav-link" href="#cn">Tiếng Nhật</a></li>
+                    <li><a data-toggle="tab" class="nav-link" href="#jp">Tiếng Nhật</a></li>
                 </ul>
             </div>
             <div class="tab-content overflow">
@@ -88,27 +88,33 @@
                           <label class="">Root</label>
                           <select id="parent" name='parent' class="form-control select2">
                             <option value="">--Root--</option>
-                            @foreach($category as $val)
-                            <option value="{{$val->category_id}}">{{$val->name}}</option>
+                            @foreach($data->CategoryTranslation as $key => $val)
+                            @if($val->locale == $locale)
+                            @foreach($category as $cat)
+                            <option <?php if($val->parent==$cat->id){echo "selected";} ?> value="{{$cat->category_id}}">{{$cat->name}}</option>
+                            @endforeach
+                            @endif
                             @endforeach
                           </select>
                           <div id="load_category">
-                            <input type="hidden" value="0" name="category:en">
-                            <input type="hidden" value="0" name="category:vi">
-                            <input type="hidden" value="0" name="category:jp">
+                            @foreach($data->CategoryTranslation as $key => $val)
+                            <input type="hidden" value="{{$val->parent}}" name="category:{{$val->locale}}">
+                            @endforeach
+                            <!-- <input type="hidden" value="0" name="category:vi"> -->
+                            <!-- <input type="hidden" value="0" name="category:jp"> -->
                           </div>
                       </div>
                   </div>
                   <div class="col-md-12">
                       <div class="form-group">
                           <label>View</label>
-                          <input value="{{$data->view}}" name="view" placeholder="..." type="text" class="form-control">
+                          <input value="{{$data->view}}" name="view" placeholder="View" type="text" class="form-control">
                       </div>
                   </div>
                   <div class="col-md-12">
                       <div class="form-group">
                           <label>Icon</label>
-                          <input value="{{$data->icon}}" name="icon" placeholder="..." type="text" class="form-control">
+                          <input value="{{$data->icon}}" name="icon" placeholder="Icon" type="text" class="form-control">
                       </div>
                   </div>
                   <div class="col-md-12">

@@ -60,6 +60,13 @@
   margin: 0 auto;
 }
 
+.header .logo img{
+    height: 35px;
+}
+.nav_container .wrapper{
+  width: 90%;
+}
+
 @media screen and (max-width: 992px) {
   .navbar {
     position: fixed;
@@ -247,4 +254,13 @@
     opacity: 1;
     visibility: visible;
   }
+}
+
+
+.header_contact select{
+  margin: 5px;
+  padding: 0px 10px;
+}
+.header_contact select:focus-visible {
+    outline: none;
 }

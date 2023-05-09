@@ -3,11 +3,11 @@
         <div class="container container_contact">
             <div class="header_phone">
                 <a class="phone_link" href="#">
-                    <i class="fas fa-phone-alt"></i>0242 242 0777
+                    <i class="fas fa-phone-alt"></i>{{$setting->hotline}}
                 </a>
                 <span>
                     <i class="fas fa-map-marker-alt"></i>
-                    Số 147 Mai Dịch, Cầu Giấy, H&#224; Nội {{Session::get('locale')}}
+                    {{$setting->address}}
                 </span>
             </div>
             <select onchange="location = this.options[this.selectedIndex].value;">
@@ -21,8 +21,8 @@
     <div class="header_nav">
         <div class="nav_container">
             <header class="header" id="header">
-               <section class="wrapper container">
-                  <a href="{{asset('')}}" class="brand">Brand</a>
+               <section class="wrapper">
+                  <a href="{{asset('')}}" class="brand logo"><img src="data/home/{{$setting->img}}"></a>
                   <div class="burger" id="burger">
                      <span class="burger-line"></span>
                      <span class="burger-line"></span>

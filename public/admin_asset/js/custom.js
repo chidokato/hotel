@@ -58,3 +58,33 @@ $(document).ready(function(){
         });
     });
 });
+
+// change sort by category
+$(document).ready(function(){
+    $("select#sort_by").change(function(){
+        var sort_by = $(this).val();
+        $.get("ajax/change_SortBy/"+sort_by,function(data){
+            $("#parent").html(data);
+        });
+        $.get("ajax/change_SortBy_parent/"+sort_by,function(data){
+            $("#load_category").html(data);
+        });
+    });
+
+    $("select#parent").change(function(){
+        var id = $(this).val();
+        // alert(id);
+        $.get("ajax/change_parent/"+id,function(data){
+            $("#load_category").html(data);
+        });
+    });
+
+    $("input#view").blur(function(){
+        var view = $(this).val();
+        var id = $(this).parents('#category').find('input[name="id"]').val();
+        // alert(id);
+        $.get("ajax/update_category_view/"+id+"/"+view,function(data){
+            // $("#load_category").html(data);
+        });
+    });
+});

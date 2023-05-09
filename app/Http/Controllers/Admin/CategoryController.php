@@ -102,10 +102,11 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $locale = Session::get('locale');
-        $category = CategoryTranslation::join('categories', 'categories.id', '=', 'category_translations.category_id')
-            ->where('locale', $locale)->where('sort_by', 'Product')->where('parent', '0')->get();
         $data = Category::find($id);
-        return view('admin.category.edit', compact('data', 'category'));
+        $category = CategoryTranslation::join('categories', 'categories.id', '=', 'category_translations.category_id')
+            ->select('category_translations.*')
+            ->where('locale', $locale)->where('sort_by', $data->sort_by)->where('parent', '0')->get();
+        return view('admin.category.edit', compact('data', 'category', 'locale'));
     }
 
     /**
@@ -122,22 +123,25 @@ class CategoryController extends Controller
         $category = Category::find($id);
         $category->view = $data['view'];
         $category->icon = $data['icon'];
-        $category->slug = Str::slug($data['name:en'], '-');
+        $category->slug = $data['slug'];
         $category->fill([
             'en' => [
                 'name' => $data['name:en'],
+                'parent' => $data['category:en'],
                 'content' => $data['content:en'],
                 'title' => $data['title:en'],
                 'description' => $data['description:en'],
             ],
             'vi' => [
                 'name' => $data['name:vi'],
+                'parent' => $data['category:vi'],
                 'content' => $data['content:vi'],
                 'title' => $data['title:vi'],
                 'description' => $data['description:vi'],
             ],
             'jp' => [
                 'name' => $data['name:jp'],
+                'parent' => $data['category:jp'],
                 'content' => $data['content:jp'],
                 'title' => $data['title:jp'],
                 'description' => $data['description:jp'],

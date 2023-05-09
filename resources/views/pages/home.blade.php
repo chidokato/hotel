@@ -5,6 +5,10 @@
 @section('robots') index, follow @endsection
 @section('url'){{asset('')}}@endsection
 
+@section('css')
+
+@endsection
+
 @section('content')
 
 @include('layout.slider')
@@ -16,27 +20,21 @@
             <div class="row hotel_row">
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 hotel_col">
                     <div class="hotel_img">
-                        
-                        <img src="frontend/files/images/ab.jpg" alt="No picture">
+                        <img src="data/home/slider2.jpg" alt="No picture">
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 hotel_col">
                     <div class="hotel_text">
                         <div class="text_name">
-                            <h3>
-                                Ch&#224;o mừng đến với Luxe Hotel
-                            </h3>
+                            <h1 style="font-size: 1.7rem">
+                                {{__('lang.heading1')}}
+                            </h1>
                             <div class="text">
-                                <div style="text-align:justify">Luxe Hotel&nbsp;với c&aacute;c ph&ograve;ng biệt thự v&agrave; bungalow được trang bị đầy đủ tiện nghi, kh&ocirc;ng gian b&ecirc;n trong được b&agrave;i tr&iacute; theo phong c&aacute;ch sang trọng pha trộn những n&eacute;t truyền thống của người Việt v&agrave; những n&eacute;t hiện đại của phương T&acirc;y. Ch&uacute;ng t&ocirc;i c&oacute; đội ngũ nh&acirc;n vi&ecirc;n được đ&agrave;o tạo b&agrave;i bản, chuy&ecirc;n nghiệp v&agrave; t&aacute;c phong chuy&ecirc;n nghiệp, phục vụ tận t&igrave;nh.<br />
-Luxe Hotel tự tin mang đến cho bạn sự thăng hoa về cảm x&uacute;c, những trải nghiệm tốt nhất, tuyệt vời nhất trong kỳ nghỉ dưỡng của bạn. H&atilde;y đến với ch&uacute;ng t&ocirc;i, ch&uacute;ng t&ocirc;i đảm bảo rằng bạn sẽ kh&ocirc;ng hối tiếc.</div>
-
+                                <div style="text-align:justify">
+                                    <p>{{__('lang.text1')}}</p>
+                                    <p>{{__('lang.text2')}}</p>
+                                </div>
                             </div>
-                            <br />
-                            <b>
-                                <i></i>
-                            </b>
-                            
-
                         </div>
                         
                     </div>
@@ -44,91 +42,50 @@ Luxe Hotel tự tin mang đến cho bạn sự thăng hoa về cảm x&uacute;c,
             </div>
         </div>
     </div>
+    @foreach($home_cats as $home_cat)
     <div class="main_space-end"></div>
     <div class="main_space"></div>
     <div class="main_lodging">
         <div class="container lodging_container">
             <div class="lodging_title">
-                <span>Khám phá</span>
-                <h2 class="title" style="color:#111111;">Các hạng phòng</h2>
+                <span>{{__('lang.RoomClasses')}}</span>
+                <h2 class="title" style="color:#111111;">{{$home_cat->name}}</h2>
             </div>
         </div>
         <div class="main_space-mg30"></div>
         <div class="carousel_lod">
             <div class="container car_container">
                 <div class="carousel_lod--list owl-carousel">
-                        <div class="item">
-                            <div class="col-lg-12 col-md-12">
-                                <a href="phong-nghi/12/phong-triple.html">
-                                    <div class="item_content">
-                                        <div class="item_img">
-                                            <img src="frontend/files/images/room/Triple-Room-with-Balcony/Triple-Room-with-Balcony.jpg" alt="phong-triple">
-                                        </div>
-                                        <div class="item_text">
-                                            <h3>Ph&#242;ng Triple</h3>
-                                            <div class="item_text-price">
-                                                Chỉ từ 1.500.000 VNĐ/Đêm
-                                            </div>
+                    @foreach($posts as $post)
+                    @if($post->category_tras_id == $home_cat->id)
+                    <div class="item">
+                        <div class="col-lg-12 col-md-12">
+                            <a href="phong-nghi/12/phong-triple.html">
+                                <div class="item_content">
+                                    <div class="item_img">
+                                        <img src="data/product/{{$post->Post->img}}" alt="phong-triple">
+                                    </div>
+                                    <div class="item_text">
+                                        <h3>{{$post->name}}</h3>
+                                        <div class="item_text-price">
+                                            @if($post->price)
+                                            Giá: chỉ từ {{$post->price}} {{$post->unit}}
+                                            @else
+                                            Giá: liên hệ
+                                            @endif
                                         </div>
                                     </div>
-                                </a>
-                            </div>
+                                </div>
+                            </a>
                         </div>
-                        <div class="item">
-                            <div class="col-lg-12 col-md-12">
-                                <a href="phong-nghi/13/phong-senior.html">
-                                    <div class="item_content">
-                                        <div class="item_img">
-                                            <img src="frontend/files/images/room/Senior-Deluxe-Room/Bedroom-Boos-Apartmen3t.jpg" alt="phong-senior">
-                                        </div>
-                                        <div class="item_text">
-                                            <h3>Ph&#242;ng Senior</h3>
-                                            <div class="item_text-price">
-                                                Chỉ từ 1.100.000 VNĐ/Đêm
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="col-lg-12 col-md-12">
-                                <a href="phong-nghi/1013/phong-connecting.html">
-                                    <div class="item_content">
-                                        <div class="item_img">
-                                            <img src="frontend/files/images/room/Senior-Deluxe-Room/Bedroom-Apartment-4.jpg" alt="phong-connecting">
-                                        </div>
-                                        <div class="item_text">
-                                            <h3>Ph&#242;ng Connecting</h3>
-                                            <div class="item_text-price">
-                                                Chỉ từ 1.650.000 VNĐ/Đêm
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="col-lg-12 col-md-12">
-                                <a href="phong-nghi/2014/phong-deluxe.html">
-                                    <div class="item_content">
-                                        <div class="item_img">
-                                            <img src="frontend/files/images/room/deluxe/Deluxe-Room-1.jpg" alt="phong-deluxe">
-                                        </div>
-                                        <div class="item_text">
-                                            <h3>Ph&#242;ng Deluxe</h3>
-                                            <div class="item_text-price">
-                                                Chỉ từ 900.000 VNĐ/Đêm
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
+                    </div>
+                    @endif
+                    @endforeach
                 </div>
             </div>
         </div>
     </div>
+    @endforeach
     <div class="main_space"></div>
     <!--End lodging-->
     <div class="carousel_two">
@@ -280,7 +237,7 @@ Luxe Hotel tự tin mang đến cho bạn sự thăng hoa về cảm x&uacute;c,
         <div class="youtube_overlay">
             <div class="youtube_text">
                 <div class="youtube_icon">
-                    <a href="https://youtu.be/CMC8jaUjVQk" data-fancybox=""><i class="fab fa-youtube"></i></a>
+                    <a href="https://youtu.be/6jqcud6MwLU" data-fancybox=""><i class="fab fa-youtube"></i></a>
                 </div>
                 <div class="youtube_subtitle">Khám phá. Đi lang thang. Nghỉ ngơi</div>
                 <h3 class="youtube_title">
@@ -519,66 +476,16 @@ Luxe Hotel tự tin mang đến cho bạn sự thăng hoa về cảm x&uacute;c,
                         </div>
                 </div>
             </div>
-            <div class="text-center"><a href="tin-tucs.html">B&#224;i viết li&#234;n quan</a></div>
         </div>
     </div>
     <!--End main_news-->
-    <div class="main_gallery">
-        <div class="container">
-            <h2 class="text-center">H&#236;nh ảnh</h2>
-            <div class="gallery-grid gallery-home">
-                    <div class="gallery-item">
-                        <div class="gallery_img">
-                            <a href="frontend/files/images/room/deluxe/Deluxe-Room-1.jpg" data-fancybox="gallery"><img src="frontend/files/images/room/deluxe/Deluxe-Room-1.jpg" alt="No picture"></a>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery_img">
-                            <a href="frontend/files/images/room/deluxe/Deluxe-Room-2.jpg" data-fancybox="gallery"><img src="frontend/files/images/room/deluxe/Deluxe-Room-2.jpg" alt="No picture"></a>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery_img">
-                            <a href="frontend/files/images/dv/san-bay/Doan-ket-cung-cap-nhieu-loai-xe-phuc-vu-nhu-cau-dua-don-san-bay.jpg" data-fancybox="gallery"><img src="frontend/files/images/dv/san-bay/Doan-ket-cung-cap-nhieu-loai-xe-phuc-vu-nhu-cau-dua-don-san-bay.jpg" alt="No picture"></a>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery_img">
-                            <a href="frontend/files/images/room/deluxe/Deluxe-Room-3.jpg" data-fancybox="gallery"><img src="frontend/files/images/room/deluxe/Deluxe-Room-3.jpg" alt="No picture"></a>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery_img">
-                            <a href="frontend/files/images/room/deluxe/Deluxe-Room-4.jpg" data-fancybox="gallery"><img src="frontend/files/images/room/deluxe/Deluxe-Room-4.jpg" alt="No picture"></a>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery_img">
-                            <a href="frontend/files/images/room/deluxe/Deluxe-Room-5.jpg" data-fancybox="gallery"><img src="frontend/files/images/room/deluxe/Deluxe-Room-5.jpg" alt="No picture"></a>
-                        </div>
-                    </div>
-            </div>
-            <div class="text-center gallery-btn"><a href="gallery.html" class="btn-more">Xem th&#234;m</a></div>
-        </div>
-    </div>
+    
 </section>
 
 @endsection
 
 
 @section('js')
-<!-- Vendor JS files -->
-    <script src="frontend/content/Js/jquery-3.5.1.min.js"></script>
-    <script type="text/javascript " src="frontend/files/cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-    <script src="frontend/files/cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-    <script src="frontend/plugins/bootstrap-4.5.2/js/bootstrap.min.js"></script>
-    <script src="frontend/plugins/owlcarousel/owl.carousel.min.js"></script>
 
-    <script src="frontend/files/cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
-    <script src="frontend/plugins/daterangepicker/daterangepicker.js"></script>
-    
-    <script src="frontend/content/Js/main.js"></script>
-
-    <script src="frontend/content/Js/menu.js"></script>
 
 @endsection

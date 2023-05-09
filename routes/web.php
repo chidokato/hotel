@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SectionController;
+use App\Http\Controllers\Admin\SettingController;
 
 use App\Http\Controllers\Admin\ProvinceController;
 use App\Http\Controllers\Admin\DistrictController;
@@ -18,14 +19,20 @@ use App\Http\Controllers\Admin\WardController;
 use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\HomeController;
 
-Route::get('/lang/{locale}', function ($locale) {
-    if (! in_array($locale, ['en', 'vi', 'jp'])) {
-        abort(400);
+// Route::get('/lang/{locale}', function ($locale) {
+//     if (! in_array($locale, ['en', 'vi', 'jp'])) {
+//         abort(400);
+//     }
+//     App::setLocale($locale);
+//     Session::put('locale', $locale);
+//     return redirect()->back();
+// });
+
+Route::get('lang/{locale}', function ($locale) {
+    if (in_array($locale, ['en', 'vi', 'jp'])) {
+      Session::put('locale', $locale);
     }
-    // echo App::setLocale($locale);
-    Session::put('locale', $locale);
     return redirect()->back();
-    // ...
 });
 
 Route::get('admin', [LoginController::class, 'index'])->name('login');
@@ -54,6 +61,7 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('post',PostController::class);
 
         Route::resource('product',ProductController::class);
+        Route::resource('setting',SettingController::class);
 
         Route::resource('users',UserController::class);
 

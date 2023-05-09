@@ -4,10 +4,10 @@
                 <div class="row footer_row">
                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                         <div class="footer_logo" style="margin: 0 0 15px 0;">
-                            <img src="frontend/files/images/logo-dark.png" alt="No picture">
+                            <img src="data/home/logo-trang.png" alt="No picture">
                         </div>
                         <div class="footer_info" style="font-size: 13px">
-                            <p>http://luxehotel.webhotel.vn/</p>
+                            <p></p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
@@ -15,16 +15,16 @@
                         <div class="footer_contact">
                             <ul class="contact_address">
                                 <li class="contact_address-item">
-                                    <i class="fas fa-map-marker-alt"></i> Số 147 Mai Dịch, Cầu Giấy, H&#224; Nội
+                                    <i class="fas fa-map-marker-alt"></i> {{$setting->address}}
                                 </li>
                                 <li class="contact_address-item">
                                     <a href="#">
-                                        <i class="fas fa-phone-alt"></i> 0242 242 0777
+                                        <i class="fas fa-phone-alt"></i> {{$setting->hotline}}
                                     </a>
                                 </li>
                                 <li class="contact_address-item">
                                     <a href="#">
-                                        <i class="far fa-envelope"></i> info@webhotel.vn
+                                        <i class="far fa-envelope"></i> {{$setting->email}}
                                     </a>
                                 </li>
                             </ul>
@@ -35,16 +35,16 @@
                         <div class="footer_quick">
                             <ul class="quick_list">
                                     <li class="quick_list-item">
-                                        <a href="lien-he.html">Li&#234;n hệ</a>
+                                        <a href="contact">Liên hệ</a>
                                     </li>
                                     <li class="quick_list-item">
-                                        <a href="ve-chung-toi.html">Về ch&#250;ng t&#244;i</a>
+                                        <a href="about">Về chúng tôi</a>
                                     </li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                        <h3 style="color:#ffffff">ĐỪNG BỎ LỠ BẤT KỲ BẢN CẬP NHẬT NÀO</h3>
+                        <h3 style="color:#ffffff">ĐĂNG KÝ NHẬN THÔNG TIN</h3>
                         <div class="input_email">
                             <input type="text" placeholder="Email">
                             <i class="far fa-envelope"></i>
@@ -59,7 +59,7 @@
         <div class="footer_copyright">
             <div class="container">
                 <span>
-                    Copyright &#169;Luxe Hotel 2022 All Rights Reserved
+                    Copyright ©Luxe Hotel 2022 All Rights Reserved
                 </span>
             </div>
         </div>

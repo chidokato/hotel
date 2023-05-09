@@ -26,6 +26,7 @@ class Post extends Model
     	'locale',
     	'title',
     	'description',
+        'utilities',
     ];
     protected $fillable = [
     	'user_id', 

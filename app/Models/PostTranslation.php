@@ -22,6 +22,7 @@ class PostTranslation extends Model
     	'locale',
     	'title',
     	'description',
+        'utilities',
     ];
 
     public function Post()

@@ -62,7 +62,7 @@ class ProductController extends Controller
         $post->user_id = Auth::User()->id;
         $post->status = 'true';
         $post->sort_by = 'Product';
-        $post->slug = Str::slug($data['name:vi'], '-');
+        $post->slug = Str::slug($data['name:en'], '-');
 
         // thêm ảnh
         if ($request->hasFile('img')) {
@@ -78,32 +78,35 @@ class ProductController extends Controller
           'en' => [
             'category_tras_id' => $data['category_id:en'],
             'name' => $data['name:en'],
+            'detail' => $data['detail:en'],
             'content' => $data['content:en'],
             'price' => $data['price'],
             'unit' => $data['unit'],
-            'address' => $data['address:en'],
             'title' => $data['title:en'],
             'description' => $data['description:en'],
+            'utilities' => implode(',', $data['utilities']),
           ],
           'vi' => [
             'category_tras_id' => $data['category_id:vi'],
             'name' => $data['name:vi'],
+            'detail' => $data['detail:vi'],
             'content' => $data['content:vi'],
             'price' => $data['price'],
             'unit' => $data['unit'],
-            'address' => $data['address:vi'],
             'title' => $data['title:vi'],
-            'description' => $data['description:vi'],   
+            'description' => $data['description:vi'],
+            'utilities' => implode(',', $data['utilities']),
           ],
-          'cn' => [
+          'jp' => [
             'category_tras_id' => $data['category_id:jp'],
             'name' => $data['name:jp'],
+            'detail' => $data['detail:jp'],
             'content' => $data['content:jp'],
             'price' => $data['price'],
             'unit' => $data['unit'],
-            'address' => $data['address:jp'],
             'title' => $data['title:jp'],
-            'description' => $data['description:jp'],   
+            'description' => $data['description:jp'],
+            'utilities' => implode(',', $data['utilities']),
           ]
         ]);
         $post->save();
@@ -121,30 +124,6 @@ class ProductController extends Controller
                 }
             }
         }
-
-        foreach ($data['name_section:vi'] as $key => $value) {
-          $Section = new Section();
-          $Section->user_id = Auth::User()->id;
-          $Section->fill([
-            'vi' => [
-              'name' => $value,
-              'post_id' => $post->id,
-              'view' => $key+1,
-            ],
-            'en' => [
-              'name' => $data['name_section:en'][$key],
-              'post_id' => $post->id,
-              'view' => $key+1,
-            ],
-            'cn' => [
-              'name' => $data['name_section:jp'][$key],
-              'post_id' => $post->id,
-              'view' => $key+1,
-            ]
-          ]);
-          $Section->save();
-        }
-        
 
         return redirect('admin/product')->with('Success','Success');
     }
@@ -193,7 +172,7 @@ class ProductController extends Controller
         
         $PostTranslation = PostTranslation::find($id);
         $PostTranslation->name = $data['name'];
-        $PostTranslation->address = $data['address'];
+        $PostTranslation->detail = $data['detail'];
         $PostTranslation->content = $data['content'];
         $PostTranslation->title = $data['title'];
         $PostTranslation->description = $data['description'];
@@ -202,6 +181,19 @@ class ProductController extends Controller
         $PostTranslation->save();
 
         $Post = Post::find($PostTranslation->post_id);
+
+        $Post->fill([
+          'en' => [
+            'utilities' => implode(',', $data['utilities']),
+          ],
+          'vi' => [
+            'utilities' => implode(',', $data['utilities']),
+          ],
+          'jp' => [
+            'utilities' => implode(',', $data['utilities']),
+          ]
+        ]);
+
         if (isset($data['category_id:en'])) {
             $Post->fill([
               'en' => [
@@ -210,7 +202,7 @@ class ProductController extends Controller
               'vi' => [
                 'category_tras_id' => $data['category_id:vi'],
               ],
-              'cn' => [
+              'jp' => [
                 'category_tras_id' => $data['category_id:jp'],
               ]
             ]);
@@ -240,36 +232,7 @@ class ProductController extends Controller
                 }
             }
         }
-        if (isset($data['name_section:vi'])) {
-            foreach ($data['name_section:vi'] as $key => $value) {
-            $Section = new Section();
-            $Section->user_id = Auth::User()->id;
-            $Section->fill([
-              'vi' => [
-                'name' => $value,
-                'post_id' => $Post->id,
-              ],
-              'en' => [
-                'name' => $data['name_section:en'][$key],
-                'post_id' => $Post->id,
-              ],
-              'cn' => [
-                'name' => $data['name_section:jp'][$key],
-                'post_id' => $Post->id,
-              ]
-            ]);
-            $Section->save();
-          }
-        }
-
-        foreach ($data['edit_id_section'] as $key => $id) {
-          $SectionTranslation = SectionTranslation::find($id);
-          $SectionTranslation->view = $data['edit_view_section'][$key];
-          $SectionTranslation->name = $data['edit_name_section'][$key];
-          $SectionTranslation->header = $data['edit_header_section'][$key];
-          $SectionTranslation->content = $data['edit_content_section'][$key];
-          $SectionTranslation->save();
-        }
+        
 
         return redirect()->back()->with('Success','Success');
     }

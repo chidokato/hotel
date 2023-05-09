@@ -9,7 +9,7 @@
     <a class="add-iteam" href="{{route('category.create')}}"><button class="btn-success form-control" type="button"><i class="fa fa-plus" aria-hidden="true"></i> {{__('lang.add')}}</button></a>
 </div>
 
-<div class="row"> 
+<div class="row">
     <div class="col-xl-12 col-lg-12">
         <div class="card shadow mb-4">
             <div class="card-header d-flex flex-row align-items-center justify-content-between">
@@ -27,9 +27,9 @@
                                 <tr>
                                     <th></th>
                                     <th>Name</th>
+                                    <th>View</th>
                                     <th>Slug</th>
                                     <th>Sort By</th>
-                                    <th>View</th>
                                     <th>date</th>
                                     <th></th>
                                 </tr>
@@ -37,14 +37,15 @@
                             <tbody>
                                 @foreach($category as $val)
                                 @if($val->parent == 0)
-                                <tr>
+                                <tr id="category">
+                                    <input type="hidden" value="{{$val->category->id}}" name="id">
                                     <td></td>
                                     <td>
                                         <a href="{{route('category.edit',[$val->category_id])}}">{{$val->name}}</a>
                                     </td>
+                                    <td><input type="text" id="view" value="{{$val->category->view}}" name="" class="form-control cat_view"></td>
                                     <td>{{$val->category->slug}}</td>
                                     <td>{{$val->category->sort_by}}</td>
-                                    <td>{{$val->category->view}}</td>
                                     <td>{{$val->updated_at}}</td>
                                     <td>
                                         <!-- <a href="{{route('category.edit',[$val->category_id])}}" class="mr-2"><i class="fas fa-edit" aria-hidden="true"></i></a> -->
@@ -57,12 +58,15 @@
                                 </tr>
                                     <?php $sub_cats = CategoryTranslation::where('parent', $val->id)->get(); ?>
                                     @foreach($sub_cats as $sub_cat)
-                                    <tr>
+                                    <tr id="category">
+                                        <input type="hidden" value="{{$sub_cat->category->id}}" name="id">
                                         <td></td>
                                         <td>
                                             <a href="{{route('category.edit',[$sub_cat->category_id])}}">__{{$sub_cat->name}}</a>
                                         </td>
+                                        <td><input type="text" id="view" value="{{$sub_cat->category->view}}" name="" class="form-control cat_view"></td>
                                         <td>{{$sub_cat->category->slug}}</td>
+                                        <td>{{$val->category->sort_by}}</td>
                                         <td>{{$sub_cat->updated_at}}</td>
                                         <td>
                                             <!-- <a href="{{route('category.edit',[$val->category_id])}}" class="mr-2"><i class="fas fa-edit" aria-hidden="true"></i></a> -->

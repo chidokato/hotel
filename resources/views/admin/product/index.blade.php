@@ -25,6 +25,7 @@
                         <thead>
                             <tr>
                                 <th>Name</th>
+                                <th>Category</th>
                                 <th>Slug</th>
                                 <!-- <th>View</th> -->
                                 <th>Status</th>
@@ -42,6 +43,7 @@
                                     <div><a href="{{route('product.edit',[$val->id])}}" class="mr-2"> [{{$val->locale}}] {{$val->name}} </a> </div>
                                     @endforeach
                                 </td>
+                                <td class="line-height">{{$val->CategoryTranslation->name}}</td>
                                 <td class="line-height">{{$post->slug}}</td>
                                 <td class="line-height">{{$post->status}}</td>
                                 <td class="line-height">Admin</td>

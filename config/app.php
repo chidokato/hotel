@@ -79,7 +79,9 @@ return [
     | to any of the locales which will be supported by the application.
     |
     */
-    'locale' => 'en', //ngôn ngữ mặc định
+    // $locale = App::currentLocale();
+    'locale' => 'en',
+    'locales' => ['vi', 'en', 'jp'],
 
     /*
     |--------------------------------------------------------------------------

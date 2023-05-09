@@ -44,15 +44,15 @@
                                   <input value="{{$data->name}}" name="name" placeholder="..." type="text" class="form-control">
                               </div>
                           </div>
-                          <div class="col-md-4">
+                          <div class="col-md-12">
                               <div class="form-group">
-                                  <label>Address</label>
-                                  <input name="address" value="{{$data->address}}" placeholder="..." type="text" class="form-control">
+                                  <label>Description</label>
+                                  <textarea rows="3" name="detail" class="form-control">{{$data->detail}}</textarea>
                               </div>
                           </div>
                           <div class="col-md-12">
                               <div class="form-group">
-                                  <label>Sales policy</label>
+                                  <label>Content</label>
                                   <textarea rows="4" name="content" class="form-control" id="ckeditor">{{$data->content}}</textarea>
                               </div>
                           </div>
@@ -62,32 +62,7 @@
                 </div>
             </div>
         </div>
-        <div class="card shadow mb-2">
-            <div class="card-header py-3 pr-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Thêm tab</h6>
-                <button class="button-none" type="button" id="add_section" onclick="addCode()"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm mới</button>
-            </div>
-            <div class="card-body add_to_me" id="add_to_me">
-                <!-- <div class="form-group d-flex align-items-center justify-content-between" id="section_list">
-                    <input class="form-control" type="text" name="name_section:vi[]" placeholder="Tiếng Việt">
-                    <input class="form-control" type="text" name="name_section:en[]" placeholder="Tiếng Anh">
-                    <input class="form-control" type="text" name="name_section:jp[]" placeholder="Tiếng Trung">
-                    <button type="button" onClick="delete_row(this)" class="form-control w100"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>
-                </div> -->
-            </div>
-        </div>
-        @foreach($section as $key => $val)
-        <div class="card shadow mb-2 card-body">
-          <div class="row">
-            <input value="{{$val->id}}" name="edit_id_section[]" type="hidden" >
-            <div class="col-md-2"><input value="{{$val->view}}" name="edit_view_section[]" placeholder="STT" type="text" class="form-control"></div>
-            <div class="col-md-3"><input value="{{$val->name}}" name="edit_name_section[]" placeholder="Tab" type="text" class="form-control"></div>
-            <div class="col-md-7"><input value="{{$val->header}}" name="edit_header_section[]" placeholder="Header" type="text" class="form-control"></div>
-          </div>
-          <textarea rows="4" name="edit_content_section[]" class="form-control" id="ckeditor{{$key+1}}">{{$val->content}}</textarea>
-        </div>
-        @endforeach
-
+        
 <!-- SEO -->
 <div class="card shadow mb-2 ">
   <div class="card-header d-flex flex-row align-items-center justify-content-between">
@@ -113,6 +88,138 @@
   </div>
 </div>
 
+<div class="card shadow mb-4">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Tiện ích</h6>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="form-group">
+                      <div class="checkboxes__item">
+                        <label class="checkbox style-e">
+                          <input name="utilities[]" value="Restaurant" type="checkbox" <?php if(strpos($data->utilities, 'Restaurant') !== false){echo 'checked="checked"';} ?>/>
+                          <div class="checkbox__checkmark"></div><div class="checkbox__body">Nhà hàng</div>
+                        </label>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                      <div class="checkboxes__item">
+                        <label class="checkbox style-e">
+                          <input name="utilities[]" value="Room_service" type="checkbox" <?php if(strpos($data->utilities, 'Room_service') !== false){echo 'checked="checked"';} ?>/>
+                          <div class="checkbox__checkmark"></div><div class="checkbox__body">Dịch vụ phòng</div>
+                        </label>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                      <div class="checkboxes__item">
+                        <label class="checkbox style-e">
+                          <input name="utilities[]" value="Laundry" type="checkbox" <?php if(strpos($data->utilities, 'Laundry') !== false){echo 'checked="checked"';} ?>/>
+                          <div class="checkbox__checkmark"></div><div class="checkbox__body">Giặt ủi</div>
+                        </label>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                      <div class="checkboxes__item">
+                        <label class="checkbox style-e">
+                          <input name="utilities[]" value="Wifi" type="checkbox" <?php if(strpos($data->utilities, 'Wifi') !== false){echo 'checked="checked"';} ?>/>
+                          <div class="checkbox__checkmark"></div><div class="checkbox__body">Wifi</div>
+                        </label>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                      <div class="checkboxes__item">
+                        <label class="checkbox style-e">
+                          <input name="utilities[]" value="Parking_area" type="checkbox" <?php if(strpos($data->utilities, 'Parking_area') !== false){echo 'checked="checked"';} ?>/>
+                          <div class="checkbox__checkmark"></div><div class="checkbox__body">Chỗ gửi xe</div>
+                        </label>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                      <div class="checkboxes__item">
+                        <label class="checkbox style-e">
+                          <input name="utilities[]" value="Have_breakfast" type="checkbox" <?php if(strpos($data->utilities, 'Have_breakfast') !== false){echo 'checked="checked"';} ?>/>
+                          <div class="checkbox__checkmark"></div><div class="checkbox__body">Ăn sáng</div>
+                        </label>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                      <div class="checkboxes__item">
+                        <label class="checkbox style-e">
+                          <input name="utilities[]" value="Gym" type="checkbox" <?php if(strpos($data->utilities, 'Gym') !== false){echo 'checked="checked"';} ?>/>
+                          <div class="checkbox__checkmark"></div><div class="checkbox__body">Gym</div>
+                        </label>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                      <div class="checkboxes__item">
+                        <label class="checkbox style-e">
+                          <input name="utilities[]" value="Spa" type="checkbox" <?php if(strpos($data->utilities, 'Spa') !== false){echo 'checked="checked"';} ?>/>
+                          <div class="checkbox__checkmark"></div><div class="checkbox__body">Spa</div>
+                        </label>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                      <div class="checkboxes__item">
+                        <label class="checkbox style-e">
+                          <input name="utilities[]" value="Safe" type="checkbox" <?php if(strpos($data->utilities, 'Safe') !== false){echo 'checked="checked"';} ?>/>
+                          <div class="checkbox__checkmark"></div><div class="checkbox__body">Két sắt</div>
+                        </label>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                      <div class="checkboxes__item">
+                        <label class="checkbox style-e">
+                          <input name="utilities[]" value="Television" type="checkbox" <?php if(strpos($data->utilities, 'Television') !== false){echo 'checked="checked"';} ?>/>
+                          <div class="checkbox__checkmark"></div><div class="checkbox__body">Tivi</div>
+                        </label>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                      <div class="checkboxes__item">
+                        <label class="checkbox style-e">
+                          <input name="utilities[]" value="Bathtub" type="checkbox" <?php if(strpos($data->utilities, 'Bathtub') !== false){echo 'checked="checked"';} ?>/>
+                          <div class="checkbox__checkmark"></div><div class="checkbox__body">Bồn tắm</div>
+                        </label>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                      <div class="checkboxes__item">
+                        <label class="checkbox style-e">
+                          <input name="utilities[]" value="Pool" type="checkbox" <?php if(strpos($data->utilities, 'Pool') !== false){echo 'checked="checked"';} ?>/>
+                          <div class="checkbox__checkmark"></div><div class="checkbox__body">Bể bơi</div>
+                        </label>
+                      </div>
+                  </div>
+                </div>
+
+              </div>
+            
+            </div>
+        </div>
+
     </div>
     <div class="col-xl-3 col-lg-3">
         <div class="card shadow mb-4">
@@ -125,7 +232,7 @@
                     <select name='parent' class="form-control select2" id="parent">
                       <option value="">--Chọn danh mục--</option>
                       @foreach($category as $val)
-                      <option <?php if($val->id == $data->category_tras_id){echo 'selected'; } ?> value="{{$val->id}}">{{$val->name}}</option>
+                      <option <?php if($val->id == $data->category_tras_id){echo 'selected'; } ?> value="{{$val->category->id}}">{{$val->name}}</option>
                       @endforeach
                     </select>
                     <div id="list_parent"></div>
@@ -135,8 +242,8 @@
                     <div style="display: flex;">
                       <input name="price" value="{{$data->price}}" placeholder="..." type="text" class="form-control">
                       <select class="form-control" name="unit">
-                        <option <?php if($data->unit == 'Tỷ'){ echo "selected"; } ?> value="Tỷ">Tỷ</option>
-                        <option <?php if($data->unit == 'Triệu'){ echo "selected"; } ?> value="Triệu">Triệu</option>
+                        <option <?php if($data->unit == 'vnđ/đêm'){ echo "selected"; } ?> value="vnđ/đêm">vnđ/đêm</option>
+                        <option <?php if($data->unit == 'vnđ/tháng'){ echo "selected"; } ?> value="vnđ/tháng">vnđ/tháng</option>
                       </select>
                     </div>
                 </div>
